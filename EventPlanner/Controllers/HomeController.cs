@@ -8,11 +8,12 @@ using System.Diagnostics;
 
 namespace EventPlanner.Controllers
 {
-    [Authorize]
+    /*[Authorize]*/
     [ApiController]
     [Route("Api/[controller]")]
     public class HomeController : ControllerBase
     {
+        #region Declarations and Constructor
         private readonly DBContext dbcontext;
         private readonly IEvents events;
         private readonly IUsers users;
@@ -25,22 +26,34 @@ namespace EventPlanner.Controllers
             this.config = config;
         }
 
-        [HttpGet("Demo")]
-        public string Demo()
+        #endregion Declarations and Constructor
+
+        #region Get Methods
+
+        [HttpGet("userDetails")]
+        public IActionResult UserDetails()
         {
-            return "Hello world";
+           var data=users.GetDetails();
+            if(data == null)
+            {
+                return Ok("No specific user exits");
+            }
+            return Ok(data);
         }
 
-        [HttpPost("AddEventDetails")]
-        public IActionResult EventDetails(EventDetails eventDetails)
+        [HttpGet("eventDetails/{userId}")]
+        public IActionResult GetDetails(int userId)
         {
-            EventDetails eventDetails1=events.RegisterEvents(eventDetails);
-            if(eventDetails1== null)
+            var data = events.GetEvents(userId);
+            if (data == null)
             {
-                return Ok("Not Added");
+                return Ok("Either user or events are not available");
             }
-            return Ok(eventDetails1);
+            return Ok(data);
         }
+#endregion Get Methods
+
+        #region Post Methods
         [HttpPost("AddUsers")]
         public IActionResult AddUserDetails(Users user)
         {
@@ -62,5 +75,34 @@ namespace EventPlanner.Controllers
             }
             return Ok(new JWTServices(config).GenerateLoginToken(login.LoginId.ToString(),login.Email));
         }
+        #endregion Post Methods
+
+        #region Put Records
+        [HttpPut("updateDetails/{user}")]
+        public IActionResult UpdateDetails(Users user)
+        {
+            var data = users.UpdateDetails(user);
+            if (data == null)
+            {
+                return Ok("User doesn't exists");
+            }
+            return Ok(data);
+
+        }
+        #endregion Put Records
+
+        #region Delete Records
+
+        [HttpDelete("DeleteUser/{id}")]
+        public IActionResult DeleteUser(int id)
+        {
+            var data = users.DeleteUser(id);
+            if(data==false)
+            {
+                return Ok("User doesn't exist");
+            }
+            return Ok("User Delete Successfully");
+        }
+        #endregion Delete Records
     }
 }

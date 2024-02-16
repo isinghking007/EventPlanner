@@ -4174,11 +4174,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Avinash Kumar\\Desktop\\Projects\\EventPlanner\\EventPlanner.csproj",
+      "projectUniqueName": "C:\\Users\\Avinash Kumar\\Desktop\\Projects\\EventPlannerProject\\EventPlanner\\EventPlanner.csproj",
       "projectName": "EventPlanner",
-      "projectPath": "C:\\Users\\Avinash Kumar\\Desktop\\Projects\\EventPlanner\\EventPlanner.csproj",
+      "projectPath": "C:\\Users\\Avinash Kumar\\Desktop\\Projects\\EventPlannerProject\\EventPlanner\\EventPlanner.csproj",
       "packagesPath": "C:\\Users\\Avinash Kumar\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Avinash Kumar\\Desktop\\Projects\\EventPlanner\\obj\\",
+      "outputPath": "C:\\Users\\Avinash Kumar\\Desktop\\Projects\\EventPlannerProject\\EventPlanner\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Avinash Kumar\\AppData\\Roaming\\NuGet\\NuGet.Config",

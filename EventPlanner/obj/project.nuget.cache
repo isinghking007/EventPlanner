@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "O8Cal+Q3RquQSatV3P3CF5iu+rOduJ8VG8Zw2aymr/d6fbV4vvl7Iy8JJ0Pw6V0NL8RGf8BtdblUk/kDw5K89g==",
+  "dgSpecHash": "LYWLmSUeyEUyb1tlcqwuPtb9dyU6Ov+vrZO0QI+QxYv2d4RhyJtjLVzvD+jjzoKJxVc0gKJKJMoslorAqHfgnQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Avinash Kumar\\Desktop\\Projects\\EventPlanner\\EventPlanner.csproj",
+  "projectFilePath": "C:\\Users\\Avinash Kumar\\Desktop\\Projects\\EventPlannerProject\\EventPlanner\\EventPlanner.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Avinash Kumar\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\Avinash Kumar\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",

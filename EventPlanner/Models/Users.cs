@@ -14,5 +14,7 @@ namespace EventPlanner.Models
         
         public string Password { get; set; }
         public DateTime CreationDate { get; set; }
+
+/*        public virtual ICollection<EventDetails> eventDetails { get; set; }*/
     }
 }

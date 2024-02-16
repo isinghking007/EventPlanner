@@ -34,5 +34,43 @@ namespace EventPlanner.Repositories
             _dbContext.SaveChanges();
             return login;
         }
+
+        public List<Users> GetDetails()
+        {
+            var userdata=_dbContext.users.ToList();
+            if(userdata == null)
+            {
+                return null;
+            }
+            return userdata;
+        }
+
+        public  Users UpdateDetails(Users user)
+        {
+            var data = _dbContext.users.Find(user.UserId);
+            if(data==null)
+            {
+                return null;
+            }
+            data.FirstName = user.FirstName;
+            data.LastName = user.LastName;
+            data.Phone = user.Phone;
+            data.Email = user.Email;
+            data.Password = user.Password;
+           
+            _dbContext.SaveChanges();
+            return data;
+        }
+        public bool DeleteUser(int id)
+        {
+            var data = _dbContext.users.Find(id);
+            if(data == null)
+            {
+                return false;
+            }
+            _dbContext.Remove(data);
+            _dbContext.SaveChanges();
+            return true;
+        }
     }
 }

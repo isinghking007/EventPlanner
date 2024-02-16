@@ -15,5 +15,7 @@ namespace EventPlanner.Models
 
         public DateTime EventCreationDate { get; set; }
 
+        public int userId { get; set; }
+        public virtual Users user { get; set; }
     }
 }

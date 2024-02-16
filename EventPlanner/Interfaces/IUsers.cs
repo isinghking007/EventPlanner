@@ -9,6 +9,10 @@ namespace EventPlanner.Interfaces
         public Users Register(Users user);
 
         public Login Login(Login login);
-       
+
+        public List<Users> GetDetails();
+
+        public Users UpdateDetails(Users user);
+        public bool DeleteUser(int id);
     }
 }
