@@ -19,6 +19,13 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<DBContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("MyConnection")));
 builder.Services.AddScoped<IEvents,EventRepository>();
+builder.Services.AddCors(options => {
+    options.AddPolicy("AllowAll", build =>
+    {
+        build.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader().WithExposedHeaders("Content-Disposition");
+
+    });
+});
 builder.Services.AddScoped<IUsers, UserRepository>();
 var app = builder.Build();
 
@@ -33,6 +40,7 @@ app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
+app.UseCors("AllowAll");
 app.MapControllers();
 
 app.Run();

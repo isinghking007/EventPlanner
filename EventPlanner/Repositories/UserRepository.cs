@@ -35,6 +35,25 @@ namespace EventPlanner.Repositories
             return login;
         }
 
+        public List<Users> getUserDetail(string email)
+        {
+            var userDetail = _dbContext.users.Where(val => val.Email == email).ToList();
+            if(userDetail == null)
+            {
+                return null;
+            }
+            return userDetail;
+        }
+        public List<Users> GetUserDetails(int userid)
+        {
+            var details = _dbContext.users.Where(val => val.UserId == userid).ToList();
+            if (details == null)
+            {
+                return null;
+            }
+            return details;
+        }
+
         public List<Users> GetDetails()
         {
             var userdata=_dbContext.users.ToList();

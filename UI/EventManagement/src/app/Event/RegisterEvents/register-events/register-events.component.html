@@ -1,0 +1,20 @@
+<div class="register-form">
+    <form [formGroup]="RegisterEvent" (ngSubmit)="submitEvent()">
+        <h1>Add Event Details</h1>
+        <div class="row">
+            <input type="text" placeholder="Event Name" formControlName="EventName">
+            <input type="number" placeholder="Event Period in days" formControlName="EventPeriod">
+        </div>
+        <div class="row">
+            <input type="date" placeholder="Event Start Date" formControlName="StartDate">
+            <!-- Hidden input to store the calculated Enddate value -->
+            <input type="date" placeholder="Event End Date" formControlName="Enddate" [readOnly]="!IsEndDateEditiable" [value]="RegisterEvent.get('Enddate')?.value">
+        </div>
+        <div class="row">
+            <input type="text" placeholder="Event Description" formControlName="Description">
+        </div>
+        <div class="row-button">
+            <button type="submit" [disabled]="!RegisterEvent.valid">Register</button>
+        </div>
+    </form>
+</div>

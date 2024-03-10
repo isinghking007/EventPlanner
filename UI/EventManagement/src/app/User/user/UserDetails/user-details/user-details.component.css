@@ -1,0 +1,5 @@
+.details-header,
+.details-value {
+    display: flex;
+    justify-content: space-evenly;
+}

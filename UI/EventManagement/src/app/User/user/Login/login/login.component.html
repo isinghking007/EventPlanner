@@ -1,0 +1,28 @@
+@if(loggedIn === false) {
+<div class="register-form">
+
+    <form [formGroup]="Login" (ngSubmit)="loginForm()">
+        <h1>Login Now!!</h1>
+        <div class="row">
+            <input type="text" placeholder="Email" formControlName="Email">
+            <input type="text" placeholder="Password" formControlName="Password">
+        </div>
+        <div class="row-button">
+            <button type="submit" [disabled]="!Login.valid">Login</button>
+        </div>
+
+    </form>
+</div>
+} @else {
+<div class="logout">
+    <div class="logout-description">
+        <p>You've already LoggedIn</p>
+        <div class="logout-button">
+            <button class="logout-button-details" (click)="logOut()" type="submit">LogOut</button>
+        </div>
+    </div>
+
+
+</div>
+<p>Logged value {{loggedIn}}</p>
+}

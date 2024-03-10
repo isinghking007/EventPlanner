@@ -1,0 +1,27 @@
+<div class="register-form">
+
+    <form [formGroup]="RegisterUser" (ngSubmit)="formSubmit()">
+        <h1>Register Yourself</h1>
+        <div class="row">
+            <input type="text" placeholder="FirstName" formControlName="FirstName">
+            <input type="text" placeholder="LastName" formControlName="LastName">
+        </div>
+        <div class="row">
+            <input type="text" placeholder="Email" formControlName="Email">
+        </div>
+        <div class="row">
+            <input type="text" placeholder="Phone" formControlName="Phone"> @if (RegisterUser.get('Phone')?.errors && RegisterUser.get('Phone')?.touched) {
+            <div>
+                @if(RegisterUser.get('Phone')?.hasError('required')) {
+                <p class="show-error"> Phone Number is required </p> } @else { @if(RegisterUser.get('Phone')?.hasError('maxLength') || RegisterUser.get('Phone')?.hasError('minLength')) {
+                <p class="show-error"> Phone number must be 10 characters exactly. </p>} } </div>
+            }
+
+
+            <input type="password" placeholder="Password" formControlName="Password">
+        </div>
+        <div class="row-button">
+            <button class="submit" type="submit" [disabled]="!RegisterUser.valid">Register</button>
+        </div>
+    </form>
+</div>

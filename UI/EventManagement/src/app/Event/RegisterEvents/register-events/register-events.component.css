@@ -1,0 +1,55 @@
+.register-form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80vh;
+}
+
+.row {
+    display: flex;
+    /* justify-content: space-between; */
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+form {
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    max-width: 400px;
+}
+
+h1 {
+    text-align: center;
+    color: darkred;
+    font-family: cursive;
+    font-size: 28px;
+}
+
+input {
+    flex: 1 1 auto;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.row-button {
+    display: flex;
+    justify-content: center;
+}
+
+button {
+    width: 35%;
+    height: 42px;
+    background-color: white;
+    font-size: 20px;
+    text-transform: uppercase;
+    border: 1px solid magenta;
+    color: darkgreen;
+    font-weight: 600;
+    font-family: cursive;
+    border-radius: 10px;
+}

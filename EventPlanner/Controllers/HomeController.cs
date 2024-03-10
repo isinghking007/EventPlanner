@@ -29,7 +29,16 @@ namespace EventPlanner.Controllers
         #endregion Declarations and Constructor
 
         #region Get Methods
-
+        [HttpGet("userDetail/{email}")]
+        public IActionResult getUserDetail(string email)
+        {
+            var userDetail = users.getUserDetail(email);
+            if(userDetail == null)
+            {
+                return Ok("No User Found");
+            }
+            return Ok(userDetail);
+        }
         [HttpGet("userDetails")]
         public IActionResult UserDetails()
         {
@@ -37,6 +46,16 @@ namespace EventPlanner.Controllers
             if(data == null)
             {
                 return Ok("No specific user exits");
+            }
+            return Ok(data);
+        }
+        [HttpGet("userDetails/{userId}")]
+        public IActionResult ParticularUserDetails(int userId)
+        {
+            var data = users.GetUserDetails(userId);
+            if(data == null)
+            {
+                return Ok("No user found");
             }
             return Ok(data);
         }
@@ -73,7 +92,7 @@ namespace EventPlanner.Controllers
             {
                 return Ok("Incorrect Credential Details");
             }
-            return Ok(new JWTServices(config).GenerateLoginToken(login.LoginId.ToString(),login.Email));
+            return Ok(new JWTServices (config).GenerateLoginToken(login.LoginId.ToString(),login.Email));
         }
         #endregion Post Methods
 

@@ -34,6 +34,8 @@ namespace EventPlanner.Controllers
             return Ok(data);
         }
         #endregion Get Methods
+
+
         #region Post Methods
         [HttpPost("AddEventDetails")]
         public IActionResult EventDetails(EventDetails eventDetails)

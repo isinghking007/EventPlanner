@@ -1,0 +1,14 @@
+<mat-drawer-container class="example-container">
+    <mat-drawer mode="side" opened>
+        <div class="leftpanelitems">
+            <ul>
+                @for(items of leftPanelItems;track items) {
+                <li (click)="onClick(items)">{{items}}</li>
+                }
+            </ul>
+        </div>
+    </mat-drawer>
+    <mat-drawer-content>
+        <router-outlet></router-outlet>
+    </mat-drawer-content>
+</mat-drawer-container>
